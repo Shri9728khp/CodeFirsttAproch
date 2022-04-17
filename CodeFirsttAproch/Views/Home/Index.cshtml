@@ -1,0 +1,57 @@
+﻿@model List<CodeFirsttAproch.Models.Employee>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+
+    .error {
+        color: #ff6a00
+    }
+</style>
+<h1>************Employee Details**********</h1>
+<table class="table table-hover table-bordered form-color table-danger">
+
+
+    <tr>
+
+        <th>Id</th>
+        <th>Name</th>
+        <th>Rollno</th>
+
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>Address</th>
+
+        <th>Gender</th>
+        
+        <th>Password</th>
+
+
+
+    
+
+    @{
+        foreach (var item in Model)
+        {
+        <tr>
+
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.Rollno</td>
+            <td>@item.Email</td>
+            <td>@item.Mobile</td>
+            <td>@item.Address</td>
+            <td>@item.Gender</td>
+            
+
+
+            <td><a href="@Url.Action("Delete","Home",new { item.Id })" class="btn btn-danger">delete</a></td>
+            <td><a href="@Url.Action("edit","Home",new { item.Id })" class="btn btn-danger">edit</a></td>
+        </tr>
+        }
+    }
+
+
+</table>
